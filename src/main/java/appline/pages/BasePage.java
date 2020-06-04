@@ -13,6 +13,7 @@ public class BasePage {
     WebDriverWait wait;
 
     public BasePage() {
+        BaseSteps.getSite("https://www.sberbank.ru/ru/person");
         driver = BaseSteps.getWebDriver();
         wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(driver, this);

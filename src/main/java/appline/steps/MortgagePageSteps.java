@@ -34,7 +34,7 @@ public class MortgagePageSteps {
     }
 
     @Step("Проверяем значения с ожидаемыми")
-    public void checkSum() throws InterruptedException {
+    public void checkSum() {
         assertThat("Значения не равны!", mortgagePage.checkSum("Сумма кредита", "2 122 000 ₽"));
         assertThat("Значения не равны!", mortgagePage.checkSum("Ежемесячный платеж", "16 922 ₽"));
         assertThat("Значения не равны!", mortgagePage.checkSum("Необходимый доход", "28 203 ₽"));
