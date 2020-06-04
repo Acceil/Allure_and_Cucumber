@@ -44,8 +44,8 @@ public class MortgagePage extends BasePage {
         waitUntilClickable(price).sendKeys(amount);
     }
 
-    public boolean checkSum(String calculationTitle, String expected) throws InterruptedException {
-        Thread.sleep(500);
+    public boolean checkSum(String calculationTitle, String expected){
+        customWait();
         By locator = By.xpath(String.format(money, calculationTitle));
         WebElement cash = driver.findElement(locator);
         return cash.getText().equals(expected);

@@ -1,6 +1,7 @@
 package appline.steps;
 
 import appline.pages.MortgagePage;
+import appline.utils.AllureUtils;
 import io.qameta.allure.Step;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,11 +23,13 @@ public class MortgagePageSteps {
 
     @Step("Поле {fieldName} замолняется значением {amount}")
     public void inputValues(String fieldName, String amount) {
+        AllureUtils.takeScreenshot();
         mortgagePage.input(fieldName, amount);
     }
 
     @Step("Переключаем свич с порядковым номером {switchNum}")
     public void switchButton(String switchNum) {
+        AllureUtils.takeScreenshot();
         mortgagePage.setSwitchControl(switchNum);
     }
 
