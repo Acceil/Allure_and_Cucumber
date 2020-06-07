@@ -1,16 +1,20 @@
 package appline.stepdefs;
 
+import appline.PropsSettings;
 import appline.steps.BaseSteps;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+
+import java.util.Properties;
 
 
 public class Hooks {
 
     @Before
     public void start() {
+        Properties properties = PropsSettings.getInstance().getProperties();
         BaseSteps.init();
-        BaseSteps.getSite("https://www.sberbank.ru/ru/person?utm_source=ep");
+        BaseSteps.getSite(properties.getProperty("urlSber"));
     }
 
     @After

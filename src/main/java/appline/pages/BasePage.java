@@ -1,5 +1,6 @@
 package appline.pages;
 
+import appline.PropsSettings;
 import appline.steps.BaseSteps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,13 +9,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Properties;
+
 public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
     public BasePage() {
-        BaseSteps.getSite("https://www.sberbank.ru/ru/person");
-        driver = BaseSteps.getWebDriver();
+        Properties properties = PropsSettings.getInstance().getProperties();
+        BaseSteps.getSite(properties.getProperty("urlSber"));
+        driver = BaseSteps.getDriver();
         wait = new WebDriverWait(driver, 10);
         PageFactory.initElements(driver, this);
     }
@@ -23,7 +27,7 @@ public class BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public WebElement waitUntilVisible(WebElement element){
+    public WebElement waitUntilVisible(WebElement element) {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
