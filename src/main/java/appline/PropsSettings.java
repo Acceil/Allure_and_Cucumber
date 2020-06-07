@@ -1,16 +1,17 @@
 package appline;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class PropsSettings {
-    private Properties properties = new Properties();
+    private final Properties properties = new Properties();
     private static PropsSettings INSTANCE = null;
 
     private PropsSettings() {
         try {
-            properties.load(new FileInputStream("src//test//resources//.properties"));
+            properties.load(new FileInputStream(new File("src/test/resources/"+System.getProperty("prop")+".properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }

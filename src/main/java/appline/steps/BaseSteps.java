@@ -22,7 +22,7 @@ public class BaseSteps {
     public static void init() {
         Properties properties = PropsSettings.getInstance().getProperties();
 
-        String browser = System.getProperty("webbrowser", "chrome");
+        String browser = properties.getProperty("browser", "chrome");
 
         switch (browser) {
             case "chrome":
