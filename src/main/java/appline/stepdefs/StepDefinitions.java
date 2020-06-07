@@ -34,8 +34,13 @@ public class StepDefinitions {
         mortgagePageSteps.switchButton(switchNum);
     }
 
-    @Then("проверяем значения с ожидаемыми")
-    public void checkSum() throws InterruptedException {
-        mortgagePageSteps.checkSum();
+    @Then("проверяем значения {string} с ожидаемым {string}")
+    public void checkSum(String title, String expected) {
+        mortgagePageSteps.checkSum(title, expected);
+    }
+
+    @Then("проверяем процентную ставку с ожидаемой")
+    public void checkProc(){
+        mortgagePageSteps.checkProc();
     }
 }

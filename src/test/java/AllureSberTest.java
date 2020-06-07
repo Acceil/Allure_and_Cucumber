@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class AllureSberTest extends PapaTest {
 
     @Test
-    public void mainTest() throws InterruptedException {
+    public void mainTest() {
         MainPageSteps mainPageSteps = new MainPageSteps();
         MortgagePageSteps mortgagePageSteps = new MortgagePageSteps();
 
@@ -23,7 +23,9 @@ public class AllureSberTest extends PapaTest {
         mortgagePageSteps.switchButton("3");
         mortgagePageSteps.switchButton("6");
 
-        mortgagePageSteps.checkSum();
+        mortgagePageSteps.checkSum("Сумма кредита", "2 122 000 ₽");
+        mortgagePageSteps.checkSum("Ежемесячный платеж", "16 922 ₽");
+        mortgagePageSteps.checkSum("Необходимый доход", "28 203 ₽");
 
     }
 }

@@ -34,10 +34,15 @@ public class MortgagePageSteps {
     }
 
     @Step("Проверяем значения с ожидаемыми")
-    public void checkSum() {
-        assertThat("Значения не равны!", mortgagePage.checkSum("Сумма кредита", "2 122 000 ₽"));
-        assertThat("Значения не равны!", mortgagePage.checkSum("Ежемесячный платеж", "16 922 ₽"));
-        assertThat("Значения не равны!", mortgagePage.checkSum("Необходимый доход", "28 203 ₽"));
+    public void checkSum(String title, String expected) {
+        assertThat("Значения не равны!", mortgagePage.checkSum(title, expected));
+//        assertThat("Значения не равны!", mortgagePage.checkSum("Сумма кредита", "2 122 000 ₽"));
+//        assertThat("Значения не равны!", mortgagePage.checkSum("Ежемесячный платеж", "16 922 ₽"));
+//        assertThat("Значения не равны!", mortgagePage.checkSum("Необходимый доход", "28 203 ₽"));
+    }
+
+    @Step
+    public void checkProc(){
         assertFalse("Значения не равны!", mortgagePage.checkSum("Процентная ставка", "11 %"));
     }
 }
