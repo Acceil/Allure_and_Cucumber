@@ -9,6 +9,11 @@ public class StepDefinitions {
     private static final MainPageSteps mainPageSteps = new MainPageSteps();
     private static final MortgagePageSteps mortgagePageSteps = new MortgagePageSteps();
 
+    @When("Закрыто окно cookie")
+    public void close() {
+        mainPageSteps.closeCookie();
+    }
+
     @When("выбираем ипотеку")
     public void goToMortgage(){
        mainPageSteps.goToMortgage();
