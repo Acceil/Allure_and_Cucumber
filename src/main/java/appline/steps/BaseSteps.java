@@ -30,8 +30,8 @@ public class BaseSteps {
                 options.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 driver = new ChromeDriver();
                 break;
-            case "firefox":
-                System.setProperty(properties.getProperty("firefoxDriver"), properties.getProperty("driverPathFirefox"));
+            case "opera":
+                System.setProperty(properties.getProperty("operaDriver"), properties.getProperty("driverPathOpera"));
                 driver = new FirefoxDriver();
                 break;
         }

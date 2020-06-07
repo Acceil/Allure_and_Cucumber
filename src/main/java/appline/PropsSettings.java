@@ -11,7 +11,8 @@ public class PropsSettings {
 
     private PropsSettings() {
         try {
-            properties.load(new FileInputStream(new File("src/test/resources/"+System.getProperty("prop")+".properties")));
+            properties.load(new FileInputStream(new File("src/test/resources/"
+                    + System.getProperty("prop") + ".properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -22,10 +23,6 @@ public class PropsSettings {
             INSTANCE = new PropsSettings();
         }
         return INSTANCE;
-    }
-
-    public String getProperty(String key) {
-        return properties.getProperty(key);
     }
 
     public Properties getProperties() {
