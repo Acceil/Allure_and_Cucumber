@@ -31,6 +31,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar"
                     </argLine>
                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
                 </configuration>
             </plugin>
             <plugin>
