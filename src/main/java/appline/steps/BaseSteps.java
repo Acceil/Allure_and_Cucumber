@@ -6,8 +6,8 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Properties;
@@ -32,7 +32,7 @@ public class BaseSteps {
                 break;
             case "opera":
                 System.setProperty(properties.getProperty("operaDriver"), properties.getProperty("driverPathOpera"));
-                driver = new FirefoxDriver();
+                driver = new OperaDriver();
                 break;
         }
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
