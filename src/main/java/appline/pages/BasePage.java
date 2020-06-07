@@ -48,7 +48,7 @@ public class BasePage {
 
     public void customWait() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
