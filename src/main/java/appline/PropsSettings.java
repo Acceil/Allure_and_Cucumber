@@ -1,5 +1,6 @@
 package appline;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -10,9 +11,9 @@ public class PropsSettings {
 
     private PropsSettings() {
         try {
-//            properties.load(new FileInputStream(new File("src/test/resources/"
-//                    + System.getProperty("prop") + ".properties")));
-            properties.load(new FileInputStream("src//test//resources//opera.properties"));
+            properties.load(new FileInputStream(new File("src/test/resources/"
+                    + System.getProperty("prop") + ".properties")));
+//            properties.load(new FileInputStream("src//test//resources//opera.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
