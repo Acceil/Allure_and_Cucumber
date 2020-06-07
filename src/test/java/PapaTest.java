@@ -1,4 +1,5 @@
 import appline.steps.BaseSteps;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public class PapaTest {
@@ -8,9 +9,9 @@ public class PapaTest {
         BaseSteps.init();
     }
 
-//    @AfterEach
-//    void tearDown() {
-//        BaseSteps.quit();
-//    }
+    @AfterEach
+    void tearDown() {
+        BaseSteps.quit();
+    }
 
 }

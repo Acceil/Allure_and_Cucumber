@@ -9,6 +9,7 @@ public class AllureSberTest extends PapaTest {
         MainPageSteps mainPageSteps = new MainPageSteps();
         MortgagePageSteps mortgagePageSteps = new MortgagePageSteps();
 
+        mainPageSteps.closeCookie();
         mainPageSteps.goToMortgage();
 
         mortgagePageSteps.switchFrame();
