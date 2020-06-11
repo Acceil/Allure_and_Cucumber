@@ -1,26 +1,19 @@
 package appline.pages;
 
-import appline.PropsSettings;
-import appline.steps.BaseSteps;
-import org.openqa.selenium.WebDriver;
+import appline.stepdefs.BaseSteps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Properties;
+import static appline.stepdefs.BaseSteps.getDriver;
 
 public class BasePage {
-    WebDriver driver;
-    WebDriverWait wait;
+    WebDriverWait wait = BaseSteps.webDriverWait;
 
     public BasePage() {
-        Properties properties = PropsSettings.getInstance().getProperties();
-        BaseSteps.getSite(properties.getProperty("urlSber"));
-        driver = BaseSteps.getDriver();
-        wait = new WebDriverWait(driver, 10);
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(getDriver(), this);
     }
 
     public WebElement waitUntilClickable(WebElement element) {
@@ -32,23 +25,26 @@ public class BasePage {
     }
 
     public void moveToElement(WebElement webElement) {
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(getDriver());
         actions.moveToElement(webElement).perform();
     }
 
-//    public void customWait(WebElement totalPrice, WebElement changePrice) {
-//        String oldPrice = totalPrice.getText();
-//        WebDriverWait wait = new WebDriverWait(driver, 15);
-//        waitUntilClickable(changePrice).click();
-//        wait.until(webDriver -> {
-//            String currentValue = totalPrice.getText();
-//            return !currentValue.equals(oldPrice);
-//        });
-//    }
+    public void doubleClick(WebElement webElement) {
+        Actions actions = new Actions(getDriver());
+        actions.doubleClick(webElement).perform();
+    }
 
-    public void customWait() {
+    public void customWait(WebElement element, String value) {
+        waitUntilVisible(element);
+        wait.until(webDriver -> {
+            String currentValue = element.getText();
+            return !currentValue.equals(value);
+        });
+    }
+
+    public void sleep(int time) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -56,7 +52,7 @@ public class BasePage {
 
 
     public void switchToFrame(WebElement element) {
-        driver.switchTo().frame(element);
+        getDriver().switchTo().frame(element);
     }
 
 }

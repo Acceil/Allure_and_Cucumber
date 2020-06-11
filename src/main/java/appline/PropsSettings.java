@@ -11,9 +11,9 @@ public class PropsSettings {
 
     private PropsSettings() {
         try {
+            String param = System.getProperty("prop");
             properties.load(new FileInputStream(new File("src/test/resources/"
-                    + System.getProperty("prop") + ".properties")));
-//            properties.load(new FileInputStream("src//test//resources//opera.properties"));
+                    + (param == null ? "chrome" : param) + ".properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }
